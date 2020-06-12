@@ -1,0 +1,22 @@
+{
+    "name": "erick_agrazal_laboratorio_6_guia",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/2020-SEMI-DESIX-G1/erick_agrazal_laboratorio_6_guia.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/2020-SEMI-DESIX-G1/erick_agrazal_laboratorio_6_guia/issues"
+    },
+    "homepage": "https://github.com/2020-SEMI-DESIX-G1/erick_agrazal_laboratorio_6_guia#readme",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
