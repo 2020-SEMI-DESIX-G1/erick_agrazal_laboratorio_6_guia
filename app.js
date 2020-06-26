@@ -9,11 +9,23 @@ const Estudiantes = require('./models/Estudiantes');
 const PORT = 3000;
 
 
+// Configuracion
+app.set('view engine', 'pug');
+app.set('views', './views');
+
+
 // Intermediarios
 app.use(bodyParser.json());
 
 
-// Controladores
+// Controladores - Views
+app.get('/estudiantes', async (req, res) => {
+    const estudiantes = await Estudiantes.find().select('nombre edad');
+    res.render('estudiantes', { estudiantes });
+});
+
+
+// Controladores - API
 app.get('/api/estudiantes/', async (req, res) => {
     const estudiantes = await Estudiantes.find().select('nombre edad');
     res.json({
