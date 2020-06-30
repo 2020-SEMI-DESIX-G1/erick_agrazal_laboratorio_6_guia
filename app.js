@@ -16,10 +16,26 @@ app.set('views', './views');
 
 // Intermediarios
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
 
 // Controladores - Views
 app.get('/estudiantes', async (req, res) => {
+    const estudiantes = await Estudiantes.find().select('nombre edad');
+    res.render('estudiantes', { estudiantes });
+});
+app.get('/estudiantes/:id', async (req, res) => {
+    try {
+        const estudiante = await Estudiantes.findById(req.params.id).select('nombre edad');
+        res.render('estudiantes_detail', { estudiante });
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+});
+app.post('/estudiantes', async (req, res) => {
+    const { nombre, edad } = req.body;
+    await Estudiantes.create({ nombre, edad });
     const estudiantes = await Estudiantes.find().select('nombre edad');
     res.render('estudiantes', { estudiantes });
 });
